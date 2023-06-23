@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoardFunctions.c" />
+    <ClCompile Include="Knight.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>
