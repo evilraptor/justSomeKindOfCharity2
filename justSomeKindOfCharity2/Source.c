@@ -1,7 +1,7 @@
 #include "Header.h"
 
 int main() {
-	int board[BOARDSIZE][BOARDSIZE];
+	int board[BOARDHEIGHT][BOARDWIDTH];
 	boardConstructor(board);
 
 	Point start = { 0, 0 };

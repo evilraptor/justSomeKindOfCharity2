@@ -1,6 +1,6 @@
 #include "Header.h"
 
-int countMoves(int board[BOARDSIZE][BOARDSIZE], Point p) {
+int countMoves(int board[BOARDHEIGHT][BOARDWIDTH], Point p) {
     //FIXME пересмотреть шаги
     /*
     * всего 8 и массивы dx,dy означают соответствующие 
@@ -24,11 +24,11 @@ int countMoves(int board[BOARDSIZE][BOARDSIZE], Point p) {
     return count;
 }
 
-Point nextMove(int board[BOARDSIZE][BOARDSIZE], Point p) {
+Point nextMove(int board[BOARDHEIGHT][BOARDWIDTH], Point p) {
     int dx[] = { 2, 1, -1, -2, -2, -1, 1, 2 };
     int dy[] = { 1, 2, 2, 1, -1, -2, -2, -1 };
     Point next = { -1, -1 };
-    int minMoves = BOARDSIZE + 1;
+    int minMoves = min(BOARDHEIGHT,BOARDWIDTH) + 1;
 
     for (int i = 0; i < 8; i++) {
         int x = p.x + dx[i];
@@ -47,11 +47,11 @@ Point nextMove(int board[BOARDSIZE][BOARDSIZE], Point p) {
     return next;
 }
 
-void knightTour(int board[BOARDSIZE][BOARDSIZE], Point start) {
+void knightTour(int board[BOARDHEIGHT][BOARDWIDTH], Point start) {
     Point current = start;
     int step = 1;
     board[current.x][current.y] = step;
-    while (step < BOARDSIZE * BOARDSIZE) {
+    while (step < BOARDHEIGHT * BOARDWIDTH) {
         current = nextMove(board, current);
         if (current.x == -1 && current.y == -1) {
             printf("No solutions.\n");
